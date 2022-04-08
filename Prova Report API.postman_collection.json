@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8118b3c3-772c-4c59-8cae-32361cb72660",
+		"_postman_id": "6dc7a4f9-83a8-4a9c-b98a-c50cee46ba6e",
 		"name": "Prova Report API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -464,24 +464,29 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "1"
+									"value": "1",
+									"description": "Indica el número de página"
 								},
 								{
 									"key": "pageSize",
-									"value": "5"
+									"value": "5",
+									"description": "Indica el tamaño de página"
 								},
 								{
 									"key": "sortOrder",
-									"value": "DESC"
+									"value": "DESC",
+									"description": "Indica el orden ascendente o descendente"
 								},
 								{
 									"key": "search",
 									"value": "venta",
+									"description": "Paramétro de búsqueda para filtrar los registros obtenidos",
 									"disabled": true
 								},
 								{
 									"key": "testSuiteId",
 									"value": "11",
+									"description": "Filtra por ID del suite de pruebas",
 									"disabled": true
 								}
 							]
@@ -505,14 +510,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/test-cases/1",
+							"raw": "{{hostname}}/api/test-cases/29",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
 								"test-cases",
-								"1"
+								"29"
 							],
 							"query": [
 								{
@@ -542,7 +547,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"testSuiteId\": 11,\n    \"priorityId\": 1,\n    \"severityId\": 1,\n    \"title\": \"TEST prioridad y severidad\",\n    \"description\": \"Probando\"\n}",
+							"raw": "{\n    \"testSuiteId\": 11,\n    \"priorityId\": 3,\n    \"severityId\": 2,\n    \"title\": \"TEST user\",\n    \"description\": \"user in charge\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -579,7 +584,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Registrar factura de venta con datos correctos\",\n    \"description\": \"El usuario registra una factura con articulos y datos de cabecera\"\n}",
+							"raw": "{\n    \"title\": \"Registrar factura de venta con datos correctos\",\n    \"description\": \"El usuario registra una factura con articulos y datos de cabecera\",\n    \"severityId\": 3,\n    \"priorityId\": 3,\n    \"userId\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -587,14 +592,181 @@
 							}
 						},
 						"url": {
-							"raw": "{{hostname}}/api/test-cases/1",
+							"raw": "{{hostname}}/api/test-cases/29",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
 								"test-cases",
-								"1"
+								"29"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Executions",
+			"item": [
+				{
+					"name": "POST /test-cases/{id}/test-executions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<robot generator=\"Robot 4.1.2 (Python 3.7.5 on win32)\" generated=\"20211103 00:24:42.264\" rpa=\"false\" schemaversion=\"2\">\n\t<suite id=\"s1\" name=\"Tasks\" source=\"C:\\Users\\alvar\\AppData\\Local\\robocorp\\RobocodeLab\\temp\\75_1497021_491870300_1\\workarea61821c4e\\tasks.robot\">\n\t\t<test id=\"s1-t1\" name=\"User can search TC-43 in google\">\n\t\t\t<kw name=\"Given a user has access to google\">\n\t\t\t\t<arg>\n\t\t\t\t\t${URL}\n\t\t\t\t</arg>\n\t\t\t\t<kw name=\"Open Chrome Browser\" library=\"RPA.Browser\">\n\t\t\t\t\t<arg>\n\t\t\t\t\t\t${url}\n\t\t\t\t\t</arg>\n\t\t\t\t\t<doc>\n\t\t\t\t\t\tOpen Chrome browser. See ``Open Available Browser`` for\n\t\t\t\t\t\tdescriptions of arguments.\n\t\t\t\t\t</doc>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:43.753\" level=\"INFO\">\n\t\t\t\t\t\tCreating an instance of the Chrome WebDriver.\n\t\t\t\t\t</msg>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:43.810\" level=\"INFO\">\n\t\t\t\t\t\tCreated download root directory: C:\\Users\\alvar\\AppData\\Local\\robocorp\\webdrivers\n\t\t\t\t\t</msg>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:43.810\" level=\"INFO\">\n\t\t\t\t\t\tCreated symlink directory: C:\\Users\\alvar\\AppData\\Local\\robocorp\\webdrivers\n\t\t\t\t\t</msg>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:43.812\" level=\"INFO\">\n\t\t\t\t\t\tCreating an instance of the Chrome WebDriver.\n\t\t\t\t\t</msg>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:45.795\" level=\"INFO\">\n\t\t\t\t\t\tCreated Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox\n\t\t\t\t\t</msg>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:45.795\" level=\"INFO\" html=\"true\">\n\t\t\t\t\t\t&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class=\"doc\"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home\n\t\t\t\t\t\t&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;\n\t\t\t\t\t</msg>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:45.795\" level=\"INFO\">\n\t\t\t\t\t\tOpening url 'https://www.google.com/'\n\t\t\t\t\t</msg>\n\t\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:43.752\" endtime=\"20211103 00:24:48.499\" />\n\t\t\t\t</kw>\n\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:43.750\" endtime=\"20211103 00:24:48.499\" />\n\t\t\t</kw>\n\t\t\t<kw name=\"When he enter a search text\">\n\t\t\t\t<arg>\n\t\t\t\t\t${QUERY}\n\t\t\t\t</arg>\n\t\t\t\t<kw name=\"Input Text\" library=\"RPA.Browser\">\n\t\t\t\t\t<arg>\n\t\t\t\t\t\tname:q\n\t\t\t\t\t</arg>\n\t\t\t\t\t<arg>\n\t\t\t\t\t\t${text}\n\t\t\t\t\t</arg>\n\t\t\t\t\t<doc>\n\t\t\t\t\t\tTypes the given ``text`` into the text field identified by ``locator``.\n\t\t\t\t\t</doc>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:48.501\" level=\"INFO\">\n\t\t\t\t\t\tTyping text 'robot-framework' into text field 'name:q'.\n\t\t\t\t\t</msg>\n\t\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:48.500\" endtime=\"20211103 00:24:48.652\" />\n\t\t\t\t</kw>\n\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:48.500\" endtime=\"20211103 00:24:48.652\" />\n\t\t\t</kw>\n\t\t\t<kw name=\"And click on search with Google\">\n\t\t\t\t<kw name=\"Submit Form\" library=\"RPA.Browser\">\n\t\t\t\t\t<doc>\n\t\t\t\t\t\tSubmits a form identified by ``locator``.\n\t\t\t\t\t</doc>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:48.653\" level=\"INFO\">\n\t\t\t\t\t\tSubmitting form 'None'.\n\t\t\t\t\t</msg>\n\t\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:48.653\" endtime=\"20211103 00:24:51.727\" />\n\t\t\t\t</kw>\n\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:48.652\" endtime=\"20211103 00:24:51.728\" />\n\t\t\t</kw>\n\t\t\t<kw name=\"Then results should contain\">\n\t\t\t\t<arg>\n\t\t\t\t\tRobot Framework\n\t\t\t\t</arg>\n\t\t\t\t<kw name=\"Page Should Contain\" library=\"RPA.Browser\">\n\t\t\t\t\t<arg>\n\t\t\t\t\t\t${expected}\n\t\t\t\t\t</arg>\n\t\t\t\t\t<doc>\n\t\t\t\t\t\tVerifies that current page contains ``text``.\n\t\t\t\t\t</doc>\n\t\t\t\t\t<msg timestamp=\"20211103 00:24:51.768\" level=\"INFO\">\n\t\t\t\t\t\tCurrent page contains text 'Robot Framework'.\n\t\t\t\t\t</msg>\n\t\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:51.729\" endtime=\"20211103 00:24:51.768\" />\n\t\t\t\t</kw>\n\t\t\t\t<kw name=\"Close Browser\" library=\"RPA.Browser\">\n\t\t\t\t\t<doc>\n\t\t\t\t\t\tCloses the current browser.\n\t\t\t\t\t</doc>\n\t\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:51.768\" endtime=\"20211103 00:24:53.942\" />\n\t\t\t\t</kw>\n\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:51.728\" endtime=\"20211103 00:24:53.943\" />\n\t\t\t</kw>\n\t\t\t<kw name=\"Close All Browsers\" library=\"RPA.Browser\" type=\"TEARDOWN\">\n\t\t\t\t<doc>\n\t\t\t\t\tCloses all open browsers and resets the browser cache.\n\t\t\t\t</doc>\n\t\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:53.943\" endtime=\"20211103 00:24:53.944\" />\n\t\t\t</kw>\n\t\t\t<doc>\n\t\t\t\tGoogle search\n\t\t\t</doc>\n\t\t\t<tag>\n\t\t\t\tregression\n\t\t\t</tag>\n\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:43.749\" endtime=\"20211103 00:24:53.945\" />\n\t\t</test>\n\t\t<test id=\"s1-t2\" name=\"Registrar TC-2 factura de venta\">\n\t\t\t<status status=\"PASS\" starttime=\"20211103 00:24:43.749\" endtime=\"20211103 00:24:53.945\" />\n\t\t</test>\n\t\t<doc>\n\t\t\tTemplate robot main suite.\n\t\t</doc>\n\t\t<status status=\"PASS\" starttime=\"20211103 00:24:42.267\" endtime=\"20211103 00:24:53.949\" />\n\t</suite>\n\t<statistics>\n\t\t<total>\n\t\t\t<stat pass=\"1\" fail=\"0\" skip=\"0\">\n\t\t\t\tAll Tests\n\t\t\t</stat>\n\t\t</total>\n\t\t<tag>\n\t\t\t<stat pass=\"1\" fail=\"0\" skip=\"0\">\n\t\t\t\tregression\n\t\t\t</stat>\n\t\t</tag>\n\t\t<suite>\n\t\t\t<stat pass=\"1\" fail=\"0\" skip=\"0\" id=\"s1\" name=\"Tasks\">\n\t\t\t\tTasks\n\t\t\t</stat>\n\t\t</suite>\n\t</statistics>\n\t<errors>\n\t\t<msg timestamp=\"20211103 00:24:43.590\" level=\"WARN\">\n\t\t\tThis is a deprecated import that will be removed in favor of RPA.Browser.Selenium\n\t\t</msg>\n\t</errors>\n</robot>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/test-cases/43/test-executions?comments=test",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-cases",
+								"43",
+								"test-executions"
+							],
+							"query": [
+								{
+									"key": "comments",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /test-cases/{id}/test-executions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/test-cases/43/test-executions?page=1&pageSize=5&sortOrder=DESC",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-cases",
+								"43",
+								"test-executions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								},
+								{
+									"key": "sortOrder",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /test-cases/{id}/last-execution",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/test-cases/43/last-execution",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-cases",
+								"43",
+								"last-execution"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "LINIO",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /test-executions/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/test-executions/4",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-executions",
+								"4"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "LINIO",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -877,7 +1049,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/sprints?page=1&pageSize=5&sortOrder=DESC",
+							"raw": "{{hostname}}/api/sprints?page=1&pageSize=5&sortOrder=DESC&projectId=6",
 							"host": [
 								"{{hostname}}"
 							],
@@ -905,8 +1077,7 @@
 								},
 								{
 									"key": "projectId",
-									"value": "",
-									"disabled": true
+									"value": "6"
 								}
 							]
 						}
@@ -966,7 +1137,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"projectId\": 6,\r\n    \"title\": \"Final Sprint\",\r\n    \"description\": \"Final tests and project release\"\r\n}",
+							"raw": "{\r\n    \"projectId\": 6,\r\n    \"description\": \"Release de Ventas y Pasarela de pagos\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1019,6 +1190,45 @@
 								"api",
 								"test-suites",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "GET /dashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/dashboard?projectId=32",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"dashboard"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "32"
+								}
 							]
 						}
 					},
