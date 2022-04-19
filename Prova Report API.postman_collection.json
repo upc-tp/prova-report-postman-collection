@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6dc7a4f9-83a8-4a9c-b98a-c50cee46ba6e",
-		"name": "Prova Report API",
+		"_postman_id": "3fa5d90a-87e3-4565-ab80-27bf00924437",
+		"name": "Prova Report API Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -1229,6 +1229,140 @@
 									"key": "projectId",
 									"value": "32"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Story",
+			"item": [
+				{
+					"name": "POST /user-stories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"projectId\": 6,\n    \"title\": \"Módulo de pagos\",\n    \"description\": \"Conjunto de pruebas para el módulo de pagos de la aplicación web.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/test-suites",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-suites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /user-stories",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GET /user-stories/{id}",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /test-cases/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Registrar factura de venta con datos correctos\",\n    \"description\": \"El usuario registra una factura con articulos y datos de cabecera\",\n    \"severityId\": 3,\n    \"priorityId\": 3,\n    \"userId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/test-cases/29",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-cases",
+								"29"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /test-cases/criteria/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Registrar factura de venta con datos correctos\",\n    \"description\": \"El usuario registra una factura con articulos y datos de cabecera\",\n    \"severityId\": 3,\n    \"priorityId\": 3,\n    \"userId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/test-cases/29",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-cases",
+								"29"
 							]
 						}
 					},
