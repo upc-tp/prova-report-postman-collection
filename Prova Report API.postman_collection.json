@@ -74,14 +74,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/projects/32",
+							"raw": "{{hostname}}/api/projects/1",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
 								"projects",
-								"32"
+								"1"
 							]
 						}
 					},
@@ -1031,10 +1031,37 @@
 			]
 		},
 		{
-			"name": "Sprints",
+			"name": "User Stories",
 			"item": [
 				{
-					"name": "GET /sprints",
+					"name": "/user-stories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user-stories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Defects States",
+			"item": [
+				{
+					"name": "/defects-states",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1049,43 +1076,25 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/sprints?page=1&pageSize=5&sortOrder=DESC&projectId=6",
+							"raw": "{{hostname}}/api/defect-states",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
-								"sprints"
-							],
-							"query": [
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "pageSize",
-									"value": "5"
-								},
-								{
-									"key": "sortOrder",
-									"value": "DESC"
-								},
-								{
-									"key": "search",
-									"value": "",
-									"disabled": true
-								},
-								{
-									"key": "projectId",
-									"value": "6"
-								}
+								"defect-states"
 							]
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Defects",
+			"item": [
 				{
-					"name": "GET /sprints/{id}",
+					"name": "GET /defects",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1100,28 +1109,49 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/sprints/2",
+							"raw": "{{hostname}}/api/defects",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
-								"sprints",
-								"2"
-							],
-							"query": [
-								{
-									"key": "search",
-									"value": "LINIO",
-									"disabled": true
-								}
+								"defects"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "POST /sprints",
+					"name": "GET /defects/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/defects/3",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"defects",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /defects",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1137,7 +1167,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"projectId\": 6,\r\n    \"description\": \"Release de Ventas y Pasarela de pagos\"\r\n}",
+							"raw": "{\r\n    \"defectStateId\": 1,\r\n    \"priorityId\": 1,\r\n    \"severityId\": 1,\r\n    \"testCaseId\": 1,\r\n    \"testExecutionId\": 1,\r\n    \"title\": \"Bug Centrar login\",\r\n    \"repro_steps\": \"Paso 2: Centrar formulario\",\r\n    \"is_fixed\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1145,20 +1175,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{hostname}}/api/sprints",
+							"raw": "{{hostname}}/api/defects",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
-								"sprints"
+								"defects"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "PUT /sprints",
+					"name": "PUT /defects",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1174,7 +1204,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Failed sprint\",\r\n    \"description\": \"Bad ending.\"\r\n}",
+							"raw": "{\r\n    \"defectStateId\": 1,\r\n    \"priorityId\": 1,\r\n    \"severityId\": 1,\r\n    \"title\": \"Bug Centrar login\",\r\n    \"repro_steps\": \"Paso 2: Centrar formulario\",\r\n    \"is_fixed\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1182,14 +1212,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{hostname}}/api/test-suites/1",
+							"raw": "{{hostname}}/api/defects/3",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
-								"test-suites",
-								"1"
+								"defects",
+								"3"
 							]
 						}
 					},
