@@ -1109,13 +1109,45 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/defects",
+							"raw": "{{hostname}}/api/defects?page=1&pageSize=10&sortOrder=DESC&projectId=32&defectStateId=2&is_fixed=0",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
 								"defects"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de página"
+								},
+								{
+									"key": "pageSize",
+									"value": "10",
+									"description": "Tamaño de página"
+								},
+								{
+									"key": "sortOrder",
+									"value": "DESC",
+									"description": "Ordenamiento"
+								},
+								{
+									"key": "projectId",
+									"value": "32",
+									"description": "Id del proyecto seleccionado"
+								},
+								{
+									"key": "defectStateId",
+									"value": "2",
+									"description": "1: Nuevo, 2: Aceptado, 3: Rechazado"
+								},
+								{
+									"key": "is_fixed",
+									"value": "0",
+									"description": "1: Corregido, 0: No corregido"
+								}
 							]
 						}
 					},
@@ -1137,14 +1169,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/defects/3",
+							"raw": "{{hostname}}/api/defects/17",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
 								"defects",
-								"3"
+								"17"
 							]
 						}
 					},
@@ -1220,6 +1252,44 @@
 								"api",
 								"defects",
 								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /defects/bulk",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"defectStateId\": 2,\r\n    \"is_fixed\": 1,\r\n    \"defectIds\": [17,16]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/defects/bulk",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"defects",
+								"bulk"
 							]
 						}
 					},
