@@ -394,6 +394,50 @@
 					"response": []
 				},
 				{
+					"name": "POST /test-suites/import",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Type,Title,Description,Priority,Severity\nST,\"Modulo de Catalogo\",Conjunto de pruebas enfocadas a validar el modulo de catalogo,,\nTC,Listar productos,Listar productos satisfactoriamente,1,1\nTC,Buscar productos,Busca productos satisfactoriamente,2,2\nST,Modulo de Ventas,\"Conjunto, de pruebas enfocadas a validar el modulo de ventas\",,\nTC,Registrar factura,Registra factura de venta satisfactoriamente,3,3\nTC,Registrar cliente,Registra cliente satisfactoriamente,1,1",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/test-suites/import?projectId=41",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-suites",
+								"import"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "41"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "PUT /test-suites",
 					"request": {
 						"auth": {
@@ -609,6 +653,161 @@
 								"api",
 								"test-cases",
 								"29"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestPlan",
+			"item": [
+				{
+					"name": "GET /test-plans",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/test-plans?page=1&pageSize=5&sortOrder=DESC&projectId=41",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-plans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								},
+								{
+									"key": "sortOrder",
+									"value": "DESC"
+								},
+								{
+									"key": "projectId",
+									"value": "41"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /test-plans/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/test-plans/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-plans",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /test-plans",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectId\": 41,\r\n    \"title\": \"Plan de prueba 1\",\r\n    \"description\": \"Primer Plan de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/test-plans",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-plans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /test-plans",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Plan de Prueba 1.5\",\r\n    \"description\": \"Plan de prueba actualizado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/test-plans/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-plans",
+								"1"
 							]
 						}
 					},
@@ -1080,6 +1279,50 @@
 					"response": []
 				},
 				{
+					"name": "POST /user-stories/import",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Type,Name,Description,Test Case Key\nUS,Gestion de Productos,COMO usuario QUIERO gestionar los productos PARA poder actualizar el catalogo de la aplicacion,\nAC,,DADO que un usuario se encuentra autenticado en la aplicacion CUANDO ingrese a la vista de Productos ENTONCES se mostraran los productos registrados,TC-08\nAC,,DADO … CUANDO … ENTONCES …,TC-09\nUS,Gestion de Usuarios,COMO usuario QUIERO tener acceso a la aplicacion PARA poder utilizar sus funciones,\nAC,,DADO que un usuario se encuentra en la pantalla de login CUANDO haga clic en Iniciar Sesion ENTONCES se redireccionara al menu principal de la aplicacion,TC-02\nAC,,DADO que un usuario se encuentra en la pantalla de registro CUANDO haga clic en Iregistrarse ENTONCES se redireccionara al menu principal de la aplicacion,TC-01",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/api/user-stories/import?projectId=41",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"user-stories",
+								"import"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "41"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GET /user-stories",
 					"request": {
 						"auth": {
@@ -1470,6 +1713,59 @@
 								{
 									"key": "projectId",
 									"value": "32"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Versions",
+			"item": [
+				{
+					"name": "GET /versions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/versions?sortOrder=DESC&projectId=41",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"versions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "DESC"
+								},
+								{
+									"key": "projectId",
+									"value": "41"
 								}
 							]
 						}
