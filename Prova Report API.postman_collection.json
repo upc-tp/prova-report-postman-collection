@@ -739,6 +739,36 @@
 					"response": []
 				},
 				{
+					"name": "GET /test-plans/{id/pdf",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/api/test-plans/12/pdf",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"test-plans",
+								"12",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "POST /test-plans",
 					"request": {
 						"auth": {
@@ -755,7 +785,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"projectId\": 41,\r\n    \"title\": \"Plan de prueba 1\",\r\n    \"description\": \"Primer Plan de prueba\"\r\n}",
+							"raw": "{\r\n    \"projectId\": 41,\r\n    \"title\": \"Sprint 2\",\r\n    \"description\": \"Plan de pruebas para el Sprint 2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1338,7 +1368,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/user-stories?page=1&pageSize=10&sortOrder=DESC&projectId=41",
+							"raw": "{{hostname}}/api/user-stories?page=1&pageSize=10&sortOrder=DESC&projectId=42",
 							"host": [
 								"{{hostname}}"
 							],
@@ -1361,12 +1391,12 @@
 								},
 								{
 									"key": "search",
-									"value": null,
+									"value": "",
 									"disabled": true
 								},
 								{
 									"key": "projectId",
-									"value": "41"
+									"value": "42"
 								}
 							]
 						}
@@ -1701,7 +1731,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/dashboard?projectId=32",
+							"raw": "{{hostname}}/api/dashboard?projectId=41&testPlanId=12&startDate=2022-04-25&endDate=2022-04-28",
 							"host": [
 								"{{hostname}}"
 							],
@@ -1712,7 +1742,19 @@
 							"query": [
 								{
 									"key": "projectId",
-									"value": "32"
+									"value": "41"
+								},
+								{
+									"key": "testPlanId",
+									"value": "12"
+								},
+								{
+									"key": "startDate",
+									"value": "2022-04-25"
+								},
+								{
+									"key": "endDate",
+									"value": "2022-04-28"
 								}
 							]
 						}
