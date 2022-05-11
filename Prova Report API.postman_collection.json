@@ -754,14 +754,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/test-plans/12/pdf",
+							"raw": "{{hostname}}/api/test-plans/15/pdf",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
 								"api",
 								"test-plans",
-								"12",
+								"15",
 								"pdf"
 							]
 						}
@@ -1524,7 +1524,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/defects?page=1&pageSize=10&sortOrder=DESC&projectId=32&defectStateId=2&is_fixed=",
+							"raw": "{{hostname}}/api/defects?page=1&pageSize=10&sortOrder=DESC&projectId=32&defectStateId=1,2,3,4",
 							"host": [
 								"{{hostname}}"
 							],
@@ -1555,13 +1555,14 @@
 								},
 								{
 									"key": "defectStateId",
-									"value": "2",
-									"description": "1: Nuevo, 2: Aceptado, 3: Rechazado"
+									"value": "1,2,3,4",
+									"description": "1: Nuevo, 2: Aceptado, 3: Rechazado 4: Corregido 5: En observacion"
 								},
 								{
 									"key": "is_fixed",
 									"value": "",
-									"description": "1: Corregido, 0: No corregido"
+									"description": "1: Corregido, 0: No corregido",
+									"disabled": true
 								}
 							]
 						}
@@ -1731,7 +1732,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}/api/dashboard?projectId=41&testPlanId=12&startDate=2022-04-25&endDate=2022-04-28",
+							"raw": "{{hostname}}/api/dashboard?projectId=41&startDate=2022-04-01&endDate=2022-05-03",
 							"host": [
 								"{{hostname}}"
 							],
@@ -1746,15 +1747,16 @@
 								},
 								{
 									"key": "testPlanId",
-									"value": "12"
+									"value": "15",
+									"disabled": true
 								},
 								{
 									"key": "startDate",
-									"value": "2022-04-25"
+									"value": "2022-04-01"
 								},
 								{
 									"key": "endDate",
-									"value": "2022-04-28"
+									"value": "2022-05-03"
 								}
 							]
 						}
